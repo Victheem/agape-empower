@@ -47,6 +47,7 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Route>
+
             </Routes>
             <WhatsAppButton />
           </BrowserRouter>

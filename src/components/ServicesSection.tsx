@@ -12,6 +12,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { TranslationKeys } from "@/i18n/translations";
 
 import loanEducation from "@/assets/loan-education.jpg";
 import loanBusiness from "@/assets/loan-business.jpg";
@@ -24,6 +25,14 @@ import { blogPosts } from "@/data/blog-posts";
 
 const fallbackAvatar = "https://via.placeholder.com/100";
 
+interface ServiceItem {
+  icon: React.ElementType;
+  titleKey: TranslationKeys;
+  items: string[];
+  link: string;
+  image: string | null;
+}
+
 const ServicesSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -31,7 +40,7 @@ const ServicesSection = () => {
 
   const [index, setIndex] = useState(0);
 
-  const services = [
+  const services: ServiceItem[] = [
     {
       icon: Banknote,
       titleKey: "services.microLending",
